@@ -1,0 +1,11 @@
+{% extends 'page.html' %}
+
+{% block body %}
+  <h1>Hello, I am a page. My name is Index</h1>
+  {% for post in site.posts %}
+  <article>
+    <h2>{{ post.title }}</h2>
+    {{ post.body }}
+  </article>
+  {% endfor %}
+{% endblock %}
