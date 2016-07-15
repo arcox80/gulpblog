@@ -12,4 +12,4 @@ Consectetur necessitatibus ducimus inventore dolores nemo? Tenetur neque nostrum
 
 Ipsum doloremque veniam ex laudantium sit quibusdam, commodi dolor nam. Libero vero sunt illo in beatae illum, a unde laudantium dolorum porro, corrupti inventore delectus et ipsum est maxime voluptates.
 
-![Image of a horse](http://cdn.thehorse.com/images/cms/2013/02/horse-cut-out-for-interactive-horse.jpg?width=630)
+![Image of UNC](/img/unc.jpg)
