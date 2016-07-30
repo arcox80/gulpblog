@@ -1,14 +1,21 @@
 {% extends 'layout.html' %}
 {% block body %}
-  <h1>Hello, I am a page. My name is Index</h1>
-  {% for post in site.posts %}
-  <article>
-    <h2><a href="{{ post.permalink }}">{{ post.title }}</a></h2>
-    <div class="meta">
-      <div class="author">{{ post.author }}</div>
-      <div class="tags">{{ post.tags }}</div>
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    {% for post in site.posts %}
+    <div class="post-preview">
+      <a href="{{ post.permalink }}">
+        <h2 class="post-title">
+          {{ post.title }}
+        </h2>
+        <h3 class="post-subtitle">
+          {{ post.tagline }}
+        </h3>
+      </a>
+      <p class="post-meta">Posted by <a href="#">{{ post.author }}</a> on {{ post.date }}</p>
     </div>
-    {{ post.body | safe }}
-  </article>
-  {% endfor %}
+    <hr>
+    {% endfor %}
+  </div>
+</div>
 {% endblock %}
