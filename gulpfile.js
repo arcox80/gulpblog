@@ -11,6 +11,13 @@
     title:'My Devschool Blog'
   };
 
+  var summary = function(text) {
+    var parts = text.split('<!--more-->');
+    if (parts.length > 1) {
+      return parts[0];
+    }
+    return '';
+  };
 
   var collectPosts = function() {
     var posts = [];
@@ -19,6 +26,7 @@
       var post = file.page;
       post.body = file.contents.toString();
       post.title = file.page.title;
+      post.summary = summary(post.body);
       post.tags = file.page.tags;
       post.permalink = '/blog' + file.path.split("src/posts")[1];
 
@@ -83,7 +91,7 @@
   });
 
   gulp.task('serve', function(cb) {
-    plugins.sequence('sync', cb);
+    plugins.sequence('watch', 'sync', cb);
   });
 
   gulp.task('sync', function() {
@@ -103,6 +111,16 @@
 
   gulp.task('assets', function(cb) {
     plugins.sequence('static', 'styles', 'scripts', 'images', cb);
+  });
+
+
+// WATCH
+  gulp.task('watch', function() {
+    gulp.watch('src/scripts/**/*.js', ['scripts']);
+    gulp.watch('src/styles/**/*.css', ['styles']);
+    gulp.watch(['src/**/*.html'], ['pages']);
+    gulp.watch(['src/posts/**/*'], ['posts']);
+    gulp.watch('src/images/**/*', ['images']);
   });
 
   gulp.task('default', plugins.sequence('clean', 'assets', 'content', 'serve'));

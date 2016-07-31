@@ -12,7 +12,8 @@
           {{ post.tagline }}
         </h3>
       </a>
-      <p class="post-meta">Posted by <a href="#">{{ post.author }}</a> on {{ post.date }}</p>
+      <p class="post-meta">Written by <a href="#">{{ post.author }}</a> on {{ post.date }}</p>
+      {{ post.summary | safe }}
     </div>
     <hr>
     {% endfor %}
