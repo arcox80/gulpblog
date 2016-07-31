@@ -1,22 +1,36 @@
 {% extends 'layout.html' %}
 {% block body %}
-<div class="row">
-  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-    {% for post in site.posts %}
-    <div class="post-preview">
-      <a href="{{ post.permalink }}">
-        <h2 class="post-title">
-          {{ post.title }}
-        </h2>
-        <h3 class="post-subtitle">
-          {{ post.tagline }}
-        </h3>
-      </a>
-      <p class="post-meta">Written by <a href="#">{{ post.author }}</a> on {{ post.date }}</p>
-      {{ post.summary | safe }}
-    </div>
-    <hr>
-    {% endfor %}
-  </div>
+<div class="article_container">
+	{% for post in site.posts %}
+	<div class="img-wrapper" style="position: static; overflow: hidden; background-color: rgba(0, 0, 0, 0);">
+		<img class="gallry_img" src="{{ site.baseurl }}/img/{{ post.image }}" style="width: 100%; height: auto; position: relative; left: 0px; top: 0px;">
+	</div>
+	<div class="article_excerpt">
+		<div class="meta">
+			<span class="article_author">
+				<i class="fa fa-user"></i>
+				{{ post.author }}
+			</span>
+			<span class="article_date">
+				<i class="fa fa-bookmark"></i>
+				{{ post.date }}
+			</span>
+		</div>
+		<h2>
+		<a href="{{ post.permalink }}">{{ post.title }}</a>
+		</h2>
+			<h3 class="post-subtitle">
+			{{ post.tagline }}
+			</h3>
+				<p>
+				{{ post.summary | safe }}
+				</p>
+	</div>
+	<div class="center">
+		<a class="continue_reading" href="{{ post.permalink }}">Continue Reading</a>
+		<br>
+		<br>
+	</div>
+	{% endfor %}
 </div>
 {% endblock %}

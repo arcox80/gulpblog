@@ -1,12 +1,14 @@
 ---
 author: Andrew Cox
-date: 2016/07/27
+date: 2016/08/05
 title: Post Number Three 
-tagline: One of these days I'll be a real post too. 
+tagline: One of these days I'll be a real post too.
+image: post2.jpg 
 ---
 
-![Placeholder](http://placehold.it/900x300)
 Sapien consequat orci, sed commodo nulla pede eget sem. Phasellus sollicitudin. Proin orci erat, blandit ut, molestie sed, fringilla non, odio. Nulla porta, tortor non suscipit gravida, velit enim aliquam quam, nec condimentum orci augue vel magna. Nulla facilisi. Donec ipsum enim, congue in, tempus id, pulvinar sagittis, leo. Donec et.
+
+<!--more-->
 
 Vehicula. Maecenas commodo facilisis lectus. Praesent sed mi. Phasellus ipsum. Donec quis tellus id lectus faucibus molestie. Praesent vel ligula. Nam venenatis neque quis mauris. Proin felis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam quam. Nam felis velit, semper nec, aliquam nec, iaculis vel, mi. Nullam et augue vitae nunc tristique vehicula. Suspendisse eget elit. Duis adipiscing dui non quam. Duis posuere tortor sit amet est iaculis egestas. Ut at magna. Etiam dui nisi, blandit quis, fermentum vitae, auctor vel, sem. Cras et leo. Vestibulum.
 

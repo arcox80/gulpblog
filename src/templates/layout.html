@@ -37,9 +37,6 @@
 	    <li>
 	      <a href="about.html">About</a>
 	    </li>
-            <li>
-              <a href="blog.html">Blog</a>
-            </li>
 	    <li>
 	      <a href="portfolio.html">Portfolio</a>
 	    </li>
@@ -70,13 +67,37 @@
     </header>
 
     <!-- Main Content -->
-    <div class="container">
+    <div class="ct-wrapper stretched">
+	<div class="outer-wrapper">
+		<div class="main-wrapper">
+			<div class="content section" id="content">
+				<div class="blog-posts hfeed">
+					<div class="post-outer">
+						<div class="post hentry">
+							<div class="post-body entry-content" id="post-body-766996852505775340">
+								<div id="p766996852505775340">
 
 	    {% block body %}{% endblock %}
 
-    </div>
+								</div>
+								<div style="clear: both;"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="blog-pager" id="blog-pager">
+				<span id="blog-pager-older-link">
+				<span class="older-text">Previous Post</span>
+				<a class="blog-pager-older-link" href="#" id="Blog1_blog-pager-older-link" title="Older Posts">Older Posts</a>
+				</span>
+			</div>
+			<div class="clear"></div>
+		</div><!-- /main-wrapper -->
+		<div class="clr"></div>
+	</div><!-- /outer-wrapper -->
+</div>
     
-    <hr>
 
     <footer>
       <div class="container">
