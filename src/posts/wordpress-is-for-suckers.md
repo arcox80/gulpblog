@@ -3,6 +3,7 @@ author: Andrew Cox
 date: 2016/07/31
 title: Wordpress is for Suckers 
 tagline: Blog site? Using Gulp? No problem.
+tags: blog, jekyll, markdown, gulp, devschool, clean blog, gulpjs 
 image: wdpsblog.jpg 
 ---
 
@@ -12,7 +13,7 @@ Well, after working for over 6 straight hours last night, I now have a fully fun
 
 This site is being created using [Jekyll](https://jekyllrb.com). Jekyll is a static site generator. It takes a template directory containing text files, runs it through a converter, in my case [Markdown](https://daringfireball.net/projects/markdown), then its [Liquid](https://github.com/Shopify/liquid/wiki) renderer, and finally creates a complete website ready to be published.
 
-So I am creating each post in Markdown while using a [YAML](http://yaml.org) front matter block that makes it easy to create posts with all of the information like author, date, title, tags, etc. right there and ready to be processed. These posts get placed into my existing template and a new page is created and added to the site. Everything is processed and put together thanks to [GulpJs](http://gulpjs.com). Gulp, you ask? I'll let Jim from [Devschool](https://devschool.rocks) handle that one.
+So I am creating each post in Markdown while using a [YAML](http://yaml.org) front matter block that makes it easy to create posts with all of the information like author, date, title, tags, etc. right there and ready to be processed. These posts get placed into my existing template and a new page is created and added to the site. Everything is processed and put together thanks to [GulpJs](http://gulpjs.com). Gulp, you ask? I'll let [Jim's Blog](https://devschool.rocks/we-teach-gulpjs-for-front-end-development/) handle that one.
 
 > With GulpJS we can build pages and posts from templates and markdown and json data, then inject the correct stylesheet and Javascript link tags, minify the html, css, and js, add cache-bursting urls, and even bundle up dozens of scripts and stylesheets into a single, compressed resource, making our websites super-duper fast.
 

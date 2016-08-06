@@ -57,6 +57,26 @@ a img:hover,
 a img:focus {
   cursor: zoom-in;
 }
+ol {
+  margin: 0 0 1.5em;
+  padding: 0;
+  counter-reset: item;
+}
+ol > li {
+  margin: .5em 0 0 0;
+  padding: 0 0 0 2em;
+  text-indent: -1em;
+  list-style-type: none;
+  counter-increment: item;
+}
+ol > li:before {
+  display: inline-block;
+  width: 1em;
+  padding-right: 0.5em;
+  font-weight: bold;
+  text-align: right;
+  content: counter(item) ".";
+}
 blockquote {
   color: #777777;
   font-style: italic;
@@ -539,18 +559,6 @@ img {
     font-size: 10px;
     margin-right: 5px;
     color: #aeaeae;
-}
-.fa {
-    display: inline-block;
-    font-family: FontAwesome;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-.fa-user:before {
-    content: "\f007";
 }
 .fa {
     display: inline-block;

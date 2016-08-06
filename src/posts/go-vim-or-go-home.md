@@ -3,6 +3,7 @@ author: Andrew Cox
 date: 2016/08/01
 title: Go Vim or Go Home
 tagline: Becoming a Kung Fu Master in Vim is quite the challenge.
+tags: vim, text editor, vi 
 image: vim-learn.jpg 
 ---
 
@@ -31,6 +32,6 @@ So what's my point? I don't know, I don't really have one. I'm just trying to ge
 4.  Finally, and most importantly, code in it. This is where you'll see its true power anyway. It's the only way you'll get past the basic navigation and deletion commands. When you have to jump through code, copy and paste lines of code, keep everything properly indented, find a particular word or symbol, you'll be glad you know Vim. 
 
 
-Don't take my word for it though, try it out for yourself.
+I didn't say I was coming up with anything groundbreaking or revolutionary. You might be saying, "That's pretty obvious." Well good, then get started and stop wasting your time here.
 
 TL;DR - Vim ain't bad.

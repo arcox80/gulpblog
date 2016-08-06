@@ -5,6 +5,7 @@
   var plugins        = require('gulp-load-plugins')();
   var through2       = require('through2');
   var bSync          = require('browser-sync');
+  var strftime       = require('strftime');
   var reload         = bSync.reload;
 
   var site = {
@@ -19,13 +20,19 @@
     return '';
   };
 
+  var prettyDate = function(date) {
+    var d = (typeof(date) === Date) ? date : Date.parse(date);
+    return strftime('%B %d, %Y', d);
+  };
+
   var collectPosts = function() {
     var posts = [];
 
-    var buildPost = function(file, enc, next) {
+    var processPost = function(file, enc, next) {
       var post = file.page;
       post.body = file.contents.toString();
       post.title = file.page.title;
+      post.prettyDate = prettyDate(file.date);
       post.summary = summary(post.body);
       post.tags = file.page.tags;
       post.permalink = '/blog' + file.path.split("src/posts")[1];
@@ -35,14 +42,15 @@
       next();
     };
 
-    var addPostsToSite = function(done) {
+    var finished = function(done) {
       site.posts = posts.sort(function (a, b) {
         return Date.parse(b.date) - Date.parse(a.date);
       });
+      fs.writeFileSync('dist/posts.json', JSON.stringify(posts));
       done();
     };
 
-    return through2.obj(buildPost, addPostsToSite);
+    return through2.obj(processPost, finished);
   };
 
   gulp.task('clean', function(cb) {
