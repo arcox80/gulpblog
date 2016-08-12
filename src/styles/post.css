@@ -1,0 +1,79 @@
+.article .title {
+  font-size: 50px;
+  margin: 0;
+  margin-bottom: 15px;
+  padding: 0;
+  text-transform: capitalize;
+  font-weight: 700;
+  text-align: center;
+}
+.article .img-wrapper {
+  margin-bottom: 20px;
+}
+.article .image {
+  width: 100%;
+  max-width: 100%
+}
+.article .excerpt {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.article .meta {
+  margin: 1em 0;
+}
+
+.article .meta,
+.article .meta span {
+  font-weight: 400;
+  font-style: normal;
+  color: #777;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 10px;
+}
+.article .excerpt h2 {
+  padding: 0;
+  margin: 0.5em 0 0.4em;
+  font-size: 40px;
+  font-weight: 700;
+  text-transform: capitalize;
+  clear: both;
+}
+.article .meta span {
+  margin-left: 10px;
+}
+.article .excerpt {
+  text-align: center;
+  margin-bottom: 35px;
+}
+.article .meta span i {
+  font-size: 10px;
+  margin-right: 5px;
+  color: #aeaeae;
+}
+.article .excerpt h2 a {
+  color: #444;
+}
+.article .excerpt p {
+  font-size: 14px;
+  line-height: 1.9;
+}
+.article a.continue {
+  display: table;
+  margin: 0 auto;
+  border: 5px double #FFF;
+  padding: 6px 25px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #FDFDFD;
+  background-color: #a0a0a0;
+}
+
+.article {
+  margin: 2em 0 3em;
+  border-bottom: 1px solid rgba(255,0,0,0.29);
+  padding: 0.5em 0 3em;
+}

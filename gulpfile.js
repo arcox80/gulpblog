@@ -22,7 +22,7 @@
 
   var prettyDate = function(date) {
     var d = (typeof(date) === Date) ? date : Date.parse(date);
-    return strftime('%B %d, %Y', d);
+    return strftime('%B %d, %Y', new Date(d));
   };
 
   var collectPosts = function() {
@@ -32,7 +32,7 @@
       var post = file.page;
       post.body = file.contents.toString();
       post.title = file.page.title;
-      post.prettyDate = prettyDate(file.date);
+      post.prettyDate = prettyDate(file.page.date);
       post.summary = summary(post.body);
       post.tags = file.page.tags;
       post.permalink = '/blog' + file.path.split("src/posts")[1];

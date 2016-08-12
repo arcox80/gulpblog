@@ -1,36 +1,59 @@
 {% extends 'layout.html' %}
 {% block body %}
-<div class="article_container">
+<div class="article-container">
   {% for post in [site.posts[0]] %}
-  <div class="img-wrapper" style="position: static; overflow: hidden; background-color: rgba(0, 0, 0, 0);">
-    <img class="gallry_img" src="{{ site.baseurl }}/img/{{ post.image }}" style="width: 100%; height: auto; position: relative; left: 0px; top: 0px;">
-  </div>
-  <div class="article_excerpt">
-    <div class="meta">
-      <span class="article_author">
-        <i class="fa fa-user"></i>
-        {{ post.author }}
-      </span>
-      <span class="article_date">
-        <i class="fa fa-bookmark"></i>
-        {{ post.prettyDate }}
-      </span>
+  <div class="article first">
+    <div class="img-wrapper" style="position: static; overflow: hidden; background-color: rgba(0, 0, 0, 0);">
+      <img class="image" src="{{ site.baseurl }}/img/{{ post.image }}" style="width: 100%; height: auto; position: relative; left: 0px; top: 0px;">
     </div>
-    <h2>
-      <a href="{{ post.permalink }}">{{ post.title }}</a>
-    </h2>
-    <h3 class="post-subtitle">
-      {{ post.tagline }}
-    </h3>
-    <p>
-    {{ post.summary | safe }}
-    </p>
-  </div>
-  <div class="center">
-    <a class="continue_reading" href="{{ post.permalink }}">Continue Reading</a>
-    <br>
-    <br>
+    <div class="excerpt">
+      <div class="meta">
+        <span class="author">
+          <i class="fa fa-user"></i>
+          {{ post.author }}
+        </span>
+        <span class="PrettyDate">
+          <i class="fa fa-bookmark"></i>
+          {{ post.prettyDate }}
+        </span>
+      </div>
+      <h2>
+        <a href="{{ post.permalink }}">{{ post.title }}</a>
+      </h2>
+      <h3 class="subtitle">
+        {{ post.tagline }}
+      </h3>
+      <p class="summary">
+      {{ post.summary | safe }}
+      </p>
+    </div>
+    <div class="center">
+      <a class="continue" href="{{ post.permalink }}">Continue Reading</a>
+    </div>
   </div>
   {% endfor %}
 </div>
+
+
+  <div id="articleExcerptTemplate" class="article">
+    <div class="img-wrapper" style="position: static; overflow: hidden; background-color: rgba(0, 0, 0, 0);">
+      <img class="image" src="" style="width: 100%; height: auto; position: relative; left: 0px; top: 0px;">
+    </div>
+    <div class="excerpt">
+      <div class="meta">
+        <span class="author">
+          <i class="fa fa-user"></i>
+        </span>
+        <span class="prettyDate">
+          <i class="fa fa-bookmark"></i>
+        </span>
+      </div>
+      <h2 class="title"></h2>
+      <h3 class="subtitle"></h3>
+      <p class="summary"></p>
+    </div>
+    <div class="center">
+      <a class="continue" href="">Continue Reading</a>
+    </div>
+  </div>
 {% endblock %}
