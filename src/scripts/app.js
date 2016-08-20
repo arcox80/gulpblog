@@ -1,8 +1,9 @@
-var posts;
+var posts = [];
 
 var renderArticle = function(json) {
   var el = $("#articleExcerptTemplate").clone();
   el.removeAttr('id');
+  el.removeClass('hidden');
   el.find('.image').attr('src', ['/img', json.image].join("/"));
   el.find('.author').append(json.author);
   el.find('.prettyDate').append(json.prettyDate);
@@ -13,7 +14,6 @@ var renderArticle = function(json) {
   el.find('.summary').append(json.summary);
   el.find('.continue').attr('href', json.permalink);
 
-
   return el;
 };
 
@@ -21,31 +21,22 @@ $(document).ready(function() {
   console.log('jquery loaded');
 
   $.getJSON('/posts.json').done(function(data) {
-    posts = data;
+    posts = data.slice(1, data.length);
     $(document).trigger('dataLoaded');
   });
 
 
   $(document).on('dataLoaded', function(event) {
-    posts.slice(1).forEach(function(json) {
-      $(".article-container").append(renderArticle(json));
-    });
     console.log('Data has loaded');
+    var renderCount = 0;
 
-    // run function that watches the scroll
+    $(window).on('scroll', function() {
+      if ($(window).scrollTop() - $('.article-container').innerHeight() - 100 > 0) {
+        var newPost = renderArticle(posts[renderCount]);
+        $('.article-container').append(newPost);
+        renderCount++;
+      }
+    });
   });
 
-  function watchScroll() {
-  //var win = $(window);
-
-  //win.scroll(function() {
-  //  check the scroll to the $(".article-container')
-  //  if you hot the bottom, you append another articler
-  //  which will extend the bottom downward
-  //  and when the bottom is hit again it repeats
-  //  oppend
-  //
-  //  eg. $(".article-container").append(renderArticle(nextJson));
-  //});
-  };
 });

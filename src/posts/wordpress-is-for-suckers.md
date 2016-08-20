@@ -11,15 +11,15 @@ Well, after working for over 6 straight hours last night, I now have a fully fun
 
 <!--more-->
 
-This site is being created using [Jekyll](https://jekyllrb.com). Jekyll is a static site generator. It takes a template directory containing text files, runs it through a converter, in my case [Markdown](https://daringfireball.net/projects/markdown), then its [Liquid](https://github.com/Shopify/liquid/wiki) renderer, and finally creates a complete website ready to be published.
+This site is being created using GulpJS and [Nunjucks](http://mozilla.github.io/nunjucks/). Nunjucks is a sophisticated templating engine for JavaScript. It completely supports client-side rendering in the browser. This allows you to prerender complex pages, and use the same templates to change the page when your application receives new data. Nunjucks has zero dependencies so loading it in the browser doesn't load anything else.
 
-So I am creating each post in Markdown while using a [YAML](http://yaml.org) front matter block that makes it easy to create posts with all of the information like author, date, title, tags, etc. right there and ready to be processed. These posts get placed into my existing template and a new page is created and added to the site. Everything is processed and put together thanks to [GulpJs](http://gulpjs.com). Gulp, you ask? I'll let [Jim's Blog](https://devschool.rocks/we-teach-gulpjs-for-front-end-development/) handle that one.
+I am creating each post in Markdown while using a [YAML](http://yaml.org) front matter block that makes it easy to create posts with all of the information like author, date, title, tags, etc. right there and ready to be processed. These posts get placed into my existing template and a new page is created and added to the site. Everything is processed and put together thanks to [GulpJs](http://gulpjs.com). Gulp, you ask? I'll let [Jim's Blog](https://devschool.rocks/we-teach-gulpjs-for-front-end-development/) handle that one.
 
 > With GulpJS we can build pages and posts from templates and markdown and json data, then inject the correct stylesheet and Javascript link tags, minify the html, css, and js, add cache-bursting urls, and even bundle up dozens of scripts and stylesheets into a single, compressed resource, making our websites super-duper fast.
 
 Thanks Jim. Of course getting to this point in my blog has been rough and a lot of precious time was wasted on getting certain things to work, but that's okay. It's all part of the learning process. I started with the [Clean Blog](https://startbootstrap.com/template-overviews/clean-blog/) template using Bootstrap, but then found some other sites that were doing some nice things as well. So now my site is kind of a Frankenstein monster, having been stitched together using a couple of different themes. 
 
-![Frankenstein Picture](../../img/frank.png)
+![Frankenstein Picture](/img/frank.png)
 
 While I feel like everything does fit, I know my code and definitely my CSS is a bit of a mess. Until I learn more, it's probably going to have to stay that way. 
 
