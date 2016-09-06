@@ -1,10 +1,10 @@
 ---
 author: Andrew Cox
-date: 1776/07/06
-title: Filler Post 6
-tagline: Yup, it's another one.
-tags: 
-image: placehold.jpg
+date: 2016/08/24
+title: The Good Parts
+tagline: After completing the marathon Good Parts video, I have a few things to say.
+tags: javascript, coding, functions, education
+image: functional.jpg
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 

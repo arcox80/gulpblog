@@ -3,7 +3,7 @@ author: Andrew Cox
 date: 2016/07/31
 title: Wordpress is for Suckers 
 tagline: Blog site? Using Gulp? No problem.
-tags: blog, jekyll, markdown, gulp, devschool, clean blog, gulpjs 
+tags: blog, gulp, coding, education, devschool
 image: wdpsblog.jpg 
 ---
 

@@ -3,7 +3,7 @@ author: Andrew Cox
 date: 2016/07/17
 title: Devschool Rocks!
 tagline: Devschool is an online coding bootcamp with 1-on-1 mentorships and a student-first philosphy.
-tags: coding, bootcamp, devschool
+tags: education, coding, developer, devschool
 image: devcapture.jpg
 ---
 

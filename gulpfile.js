@@ -1,5 +1,6 @@
 (function() {
   var gulp           = require('gulp');
+  var circular       = require('circular');
   var del            = require('del');
   var fs             = require('fs');
   var plugins        = require('gulp-load-plugins')();
@@ -7,9 +8,19 @@
   var bSync          = require('browser-sync');
   var strftime       = require('strftime');
   var reload         = bSync.reload;
+  var _              = require('underscore');
 
+  var posts =[];
   var site = {
-    title:'My Devschool Blog'
+    title:'My Devschool Blog',
+    posts: []
+  };
+
+  var clean = function(tagstr){
+    return tagstr.split(",")
+      .map(function(tag){
+        return tag.toLowerCase().trim();
+      });
   };
 
   var summary = function(text) {
@@ -25,16 +36,57 @@
     return strftime('%B %d, %Y', new Date(d));
   };
 
+  var otherPosts = function(original) {
+    return posts.filter(function(post) {
+      return post != original;
+    });
+  };
+
+  var addRelatedPosts = function(original) {
+    posts.forEach(function(post) {
+      var matches = original.tags.map(function(tag) {
+        if (post.tags.includes(tag)) {
+          return post;
+        }
+      });
+
+      _.sample(matches, 3).forEach(function(match) {
+        original.related.push(match);
+      });
+
+    });
+  };
+
+  var sampleRelatedPosts = function() {
+    var stream = through2.obj(function(file, enc, next) {
+      file.page.related = [];
+      addRelatedPosts(file.page);
+      this.push(file);
+      next();
+    }, function(done) {
+      done();
+    });
+    return stream;
+  };
+
   var collectPosts = function() {
-    var posts = [];
+    var allTags = [];
 
     var processPost = function(file, enc, next) {
       var post = file.page;
+
+      post.tags = clean(file.page.tags || "");
+      post.tags.forEach(function(tag){
+        if (allTags.indexOf(tag.toLowerCase().trim()) > -1){
+          return;
+        }
+        allTags.push(tag);
+      });
+
       post.body = file.contents.toString();
       post.title = file.page.title;
       post.prettyDate = prettyDate(file.page.date);
       post.summary = summary(post.body);
-      post.tags = file.page.tags;
       post.permalink = '/blog' + file.path.split("src/posts")[1];
 
       posts.push(post);
@@ -46,11 +98,16 @@
       site.posts = posts.sort(function (a, b) {
         return Date.parse(b.date) - Date.parse(a.date);
       });
-      fs.writeFileSync('dist/posts.json', JSON.stringify(posts));
+      site.tags = allTags;
+      json = JSON.stringify(site.posts, circular());
+      // for infinite scroll
+      fs.writeFileSync('dist/posts.json', json);
+
       done();
     };
 
-    return through2.obj(processPost, finished);
+    var stream = through2.obj(processPost, finished);
+    return stream;
   };
 
   gulp.task('clean', function(cb) {
@@ -81,9 +138,11 @@
               .pipe(plugins.frontMatter({property: 'page', remove: true}))
               .pipe(plugins.markdown())
               .pipe(collectPosts())
+              .pipe(sampleRelatedPosts())
+              .pipe(plugins.data({site: site}))
               .pipe(plugins.wrap(function(data) {
                 return fs.readFileSync('src/templates/post.html').toString();
-              }, null, { engine: 'nunjucks' }))
+              }, {}, { engine: 'nunjucks' }))
               .pipe(gulp.dest('dist/blog'))
               .pipe(reload({stream: true}));
   });

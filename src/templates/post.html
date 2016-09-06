@@ -32,16 +32,16 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <a href="../../index.html">Home</a>
+              <a href="/index.html">Home</a>
             </li>
             <li>
-              <a href="../../about.html">About</a>
+              <a href="/about.html">About</a>
             </li>
             <li>
-              <a href="../../portfolio.html">Portfolio</a>
+              <a href="/portfolio.html">Portfolio</a>
             </li>
             <li>
-              <a href="../../contact.html">Contact</a>
+              <a href="/contact.html">Contact</a>
             </li>
           </ul>
         </div>
@@ -70,36 +70,50 @@
             <div class="blog-posts hfeed">
               <div class="post-outer">
                 <div class="post hentry">
-                  <h1 class="post_title entry-title">
-                    {{ file.page.title }}
-                  </h1>
-                  <div class="post-header">
-                    <span class="post-author vcard">
-                      <span class="fn">{{ file.page.author }}</span>
-                    </span>
-                    <span class="post-timestamp">
-                      {{ file.page.prettyDate }}
-                    </span>
-                  </div>
-                  <div class="post-body entry-content">
-                    <div dir="ltr" style="text-align: left;" trbidi="on">
-                      <div class="separator" style="clear: both; text-align: center;">
-                        <img border="0" src="{{ site.baseurl }}/img/{{ file.page.image }}" height="360" width="640">
+                  <div class ="post-body entry-content">
+                    <article>
+                      <div class="article first">
+                        <div class="img-wrapper" style="position: static; overflow: hidden; background-color: rgba(0, 0, 0, 0);">
+                          <img class="image" src="/img/{{ file.page.image }}" style="width: 100%; height: auto; position: relative; left: 0px; top: 0px;">
+                        </div>
+                        <div class="excerpt">
+                          <div class="meta">
+                            <span class="author">
+                              <i class="fa fa-user"></i>
+                              {{ file.page.author }}
+                            </span>
+                            <span class="PrettyDate">
+                              <i class="fa fa-bookmark"></i>
+                              {{ file.page.prettyDate }}
+                            </span>
+                          </div>
+                          <h2>{{ file.page.title }}</h2>
+                          <h3 class="subtitle">{{ file.page.tagline }}</h3>
+                        </div>
+                        <div class="post-content">
+                        {{ file.page.body | safe }}
+                        </div>
+                        <ul class="list-unstyled list-inline" id="relatedPosts"></ul>
                       </div>
-                      {{ file.page.body | safe }}
-                    </div>
+                    </article>
                     <div class="clear: both;"></div>
                   </div>
                 </div>
               </div>
-              <div class="clear"></div>
             </div>
+            <div class="clear"></div>
           </div>
-        </div><!-- /main-wrapper -->
-        <div class="clr"></div>
-      </div><!-- /outer-wrapper -->
-    </div>	
+        </div>
+      </div>
+      <div class="clr"></div>
+    </div>
 
+    <div class="relatedPosts">
+      <h3>({{ file.page.related.length}}) related posts</h3>
+      {% for related in file.page.related %}
+      {{ related.title }}
+      {% endfor %}
+    </div>
 
     <footer>
       <div class="container">
@@ -138,8 +152,10 @@
     </footer>
 
 
+    <script type="application/text" id="currTags">{{ file.page.tags }}</script>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
     <script src="/js/all.min.js"></script>
 
   </body>

@@ -3,7 +3,7 @@ author: Andrew Cox
 date: 2016/08/01
 title: Go Vim or Go Home
 tagline: Becoming a Kung Fu Master in Vim is quite the challenge.
-tags: vim, text editor, vi 
+tags: vim, coding, education, devschool
 image: vim-learn.jpg 
 ---
 
@@ -18,6 +18,7 @@ Everything was foreign, and it is the opposite of sleek and modern. I felt like 
 What ended up being the biggest help for me was when I was taking notes while watching videos and reading books on coding. I forced myself to use Vim, and I slowly got better at it. The movement keys finally found their way into my muscle memory, and I got much better at the basic text editing commands. Taking notes in Vim allowed me to use it extensively on a daily basis and become much more comfortable with it. Once you get past this big first hump, you can then start to actually get proficient with it. There are times now when I'm writing in Word or an email, and I wish I could quickly move my cursor to an exact spot like I can in Vim. It's kind of funny considering how I felt when I first used Vim. 
 
 Now, I'm not trying to sound like I'm some expert or anything. I'm far from it. Jim, my teacher at Devschool, [check it out](https://devschool.rocks), can attest to that. Watching him whip around in it is always a not so subtle reminder that I'm still in the beginning stages. The other reminder was on Saturday night, when I finally got my blog running well. Sure, I made a good show about it and acted all proud in my previous post, but in truth, it was a bit of a hollow victory. My weakness in Vim got the better of me. I got frustrated trying to copy and paste chunks of code between two files, and from another program into Vim. Plus, I was tired of staring at my small MacBook screen when I could be enjoying my PC with the large monitor. So I cheated and used some other editors that shall not be named.
+
 ![Fraud](../../img/fraud.gif)
 
 Yes, I know what you're thinking. I'm the same guy who was just singing its praises a second ago, and how I felt like I was over the first big hump, and yadda yadda yadda. However, I still stand by those comments, and the thing is I know that I could have addressed all of those complaints in Vim just fine; it's just that I haven't learned it all yet. And getting everything correctly indented was a nightmare in those other editors (probably because I'm not familiar with them either or have them customized properly), while it is only just a few key strokes in Vim. 

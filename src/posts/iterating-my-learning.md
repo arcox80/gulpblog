@@ -3,7 +3,7 @@ author: Andrew Cox
 date: 2016/08/05
 title: Iterating My Learning
 tagline: When it comes to learning to program, you can’t escape iteration.
-tags: programming, coding, JavaScript, learning
+tags: javascript, coding, education, devschool
 image: iteration.jpg
 ---
 
