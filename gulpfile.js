@@ -42,39 +42,39 @@
     });
   };
 
-  var addRelatedPosts = function(original) {
-    posts.forEach(function(post) {
-      var matches = original.tags.map(function(tag) {
-        if (post.tags.includes(tag)) {
-          return post;
-        }
-      });
-
-      _.sample(matches, 3).forEach(function(match) {
-        original.related.push(match);
-      });
-
-    });
+  var postById = function(id) {
+    var found;
+    for(var i=0; i < posts.length; i++) {
+      if (posts[i].id === id) {
+        found = posts[i];
+        break;
+      }
+    }
+    return found;
   };
 
-  var sampleRelatedPosts = function() {
-    var stream = through2.obj(function(file, enc, next) {
-      file.page.related = [];
-      addRelatedPosts(file.page);
-      this.push(file);
-      next();
-    }, function(done) {
-      done();
+  var addRelatedPosts = function(id) {
+    var original = postById(id);
+    if(!original) { return; }
+    original.related = [];
+    posts.forEach(function(post) {
+      original.tags.forEach(function(tag) {
+        if(post.tags.includes(tag)) {
+          original.related.push(post.id);
+        }
+      });
     });
-    return stream;
+    original.related = _.sample(_.uniq(original.related), 3);
   };
 
   var collectPosts = function() {
     var allTags = [];
+    var lastId = 1;
 
     var processPost = function(file, enc, next) {
       var post = file.page;
 
+      post.id = lastId++;
       post.tags = clean(file.page.tags || "");
       post.tags.forEach(function(tag){
         if (allTags.indexOf(tag.toLowerCase().trim()) > -1){
@@ -97,6 +97,9 @@
     var finished = function(done) {
       site.posts = posts.sort(function (a, b) {
         return Date.parse(b.date) - Date.parse(a.date);
+      });
+      site.posts.forEach(function(post) {
+        addRelatedPosts(post.id);
       });
       site.tags = allTags;
       json = JSON.stringify(site.posts, circular());
@@ -138,7 +141,6 @@
               .pipe(plugins.frontMatter({property: 'page', remove: true}))
               .pipe(plugins.markdown())
               .pipe(collectPosts())
-              .pipe(sampleRelatedPosts())
               .pipe(plugins.data({site: site}))
               .pipe(plugins.wrap(function(data) {
                 return fs.readFileSync('src/templates/post.html').toString();

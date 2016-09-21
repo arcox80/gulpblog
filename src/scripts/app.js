@@ -18,6 +18,9 @@ var renderArticle = function(json) {
 };
 
 $(document).ready(function() {
+  if($('.hfeed').length === 0) {
+    return;
+  }
   console.log('jquery loaded');
 
   $.getJSON('/posts.json').done(function(data) {
