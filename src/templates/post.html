@@ -91,12 +91,45 @@
                           <h3 class="subtitle">{{ file.page.tagline }}</h3>
                         </div>
                         <div class="post-content">
-                        {{ file.page.body | safe }}
+                          {{ file.page.body | safe }}
                         </div>
-                        <ul class="list-unstyled list-inline" id="relatedPosts"></ul>
                       </div>
-                    </article>
+					  </article>
                     <div class="clear: both;"></div>
+					<div class="article-container">
+                      {% for related in file.page.related %}
+                      <div class="article">
+                        <div class="img-wrapper" style="position: static; overflow: hidden; background-color: rgba(0, 0, 0, 0);">
+                          <img class="image" src="{{ site.baseurl }}/img/{{ related.image }}" style="width: 100%; height: auto; position: relative; left: 0px; top: 0px;">
+                        </div>
+                        <div class="excerpt">
+                          <div class="meta">
+                            <span class="author">
+                              <i class="fa fa-user"></i>
+                              {{ related.author }}
+                            </span>
+                            <span class="PrettyDate">
+                              <i class="fa fa-bookmark"></i>
+                              {{ related.prettyDate }}
+                            </span>
+                          </div>
+                          <h2>
+                            <a href="{{ related.permalink }}">{{ related.title }}</a>
+                          </h2>
+                          <h3 class="subtitle">
+                            {{ related.tagline }}
+                          </h3>
+                          <p class="summary">
+                          {{related.summary | safe }}
+                          </p>
+                        </div>
+                        <div class="center">
+                          <a class="continue" href="{{ related.permalink }}">Continue Reading</a>
+                        </div>
+                      </div>
+                      {% endfor %}
+                      <div class="article-container-end"></div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -108,12 +141,6 @@
       <div class="clr"></div>
     </div>
 
-    <div class="relatedPosts">
-      <h3>({{ file.page.related.length}}) related posts</h3>
-      {% for related in file.page.related %}
-      {{ related.title }}
-      {% endfor %}
-    </div>
 
     <footer>
       <div class="container">
